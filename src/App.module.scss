@@ -10,6 +10,7 @@
     align-items: center;
     .container{
         display: flex;
+        flex-direction: column;
         .container__cards{
             display: flex;
             flex-direction: column;
