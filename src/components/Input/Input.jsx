@@ -1,28 +1,29 @@
+import styles from './Input.module.scss'
 
-function Input({ setFn, labelText, onChange, type, value, placeholder, maxLength, expReg }) {
+
+function Input({ state, setFn, labelText, onChange, type, value, placeholder, maxLength, expReg}) {
   const validation = () => {
     if(expReg.test(value)){
       setFn(state => ({...state, valid: true}))
-      console.log('es valido')
     }
     else{
       setFn(state => ({...state, valid: false}))
-      console.log('es invalido')
     }
   }
+
   return (
-    <>
-      <label>{labelText}</label>
-      <input 
+    <div className={styles.container__input}>
+      {labelText && <label>{labelText}</label>}
+      <input style={{outlineColor: `${state ? '#6F376A' :'hsl(0, 100%, 66%)'}`}}
       type={type}
-      value={value}
       onChange={onChange}
       onKeyUp={validation}
       placeholder={placeholder}
       maxLength={maxLength}
       required
       />
-    </>
+      {state === false && <p style={{color: 'hsl(0, 100%, 66%)'}}>Invalid field</p>}
+    </div>
   )
 }
 

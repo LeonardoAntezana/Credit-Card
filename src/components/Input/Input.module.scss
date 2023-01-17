@@ -1,0 +1,18 @@
+.container__input{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    label{
+        text-transform: uppercase;
+    }
+    input{
+        border: 1px solid rgb(182, 176, 176);
+        border-radius: 4px;
+        padding: 1rem;
+        cursor: pointer;
+    }
+    input:focus{
+        border-image: linear-gradient(hsl(249, 99%, 64%) to hsl(278, 94%, 30%));
+    }
+
+}
